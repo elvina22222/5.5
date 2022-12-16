@@ -33,4 +33,10 @@ app.put("/user/:id", function (req, res) {
       res.status(404).json();
     }
   });
+
+  app.delete('/user/:id', function (req, res) {
+    const idOfUser = parseInt(req.params.id);
+    users = users.filter((user) => user.id !== idOfUser);
+    res.json(users);
+  });
 }
